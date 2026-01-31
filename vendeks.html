@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENDEKS - Moda Moderne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37;
+            --bg: #f8f6f3;
+            --text: #2d2d2d;
+            --light: #ffffff;
+            --border: #e0ddd8;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--light);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: var(--light);
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            flex: 0 1 400px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 14px;
+            font-family: 'Work Sans', sans-serif;
+            transition: all 0.3s;
+            background: var(--bg);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--light);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--accent);
+        }
+
+        /* Icons */
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            position: relative;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .icon-btn:hover {
+            color: var(--accent);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(26,26,26,0.05) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8f6f3" width="1200" height="800"/><path fill="%23e0ddd8" opacity="0.3" d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 16px 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+            transition: all 0.4s;
+            border: 2px solid var(--primary);
+            font-size: 14px;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .category-card {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.4s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            color: var(--light);
+        }
+
+        .category-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--light);
+            border-color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 6px 15px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 2px;
+        }
+
+        .quick-view {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: var(--light);
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: bottom 0.3s;
+        }
+
+        .product-card:hover .quick-view {
+            bottom: 0;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .product-price .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+            font-weight: 400;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            font-size: 13px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            right: -450px;
+            top: 0;
+            width: 450px;
+            height: 100vh;
+            background: var(--light);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            transition: right 0.4s;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .qty-btn {
+            width: 28px;
+            height: 28px;
+            border: 1px solid var(--border);
+            background: var(--light);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .remove-item:hover {
+            color: #ff4444;
+        }
+
+        .cart-footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .checkout-btn:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--light);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #999;
+        }
+
+        .empty-cart-message p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Checkout Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .checkout-modal {
+            background: var(--light);
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            animation: slideUp 0.4s;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg);
+        }
+
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .checkout-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+            background: var(--light);
+            padding: 0 10px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--border);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .step.active .step-number {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .step.completed .step-number {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .step-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+        }
+
+        .step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .checkout-section {
+            display: none;
+        }
+
+        .checkout-section.active {
+            display: block;
+            animation: fadeInUp 0.4s;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-method {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--light);
+        }
+
+        .payment-method:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .payment-method.selected {
+            border-color: var(--accent);
+            background: rgba(212,175,55,0.05);
+        }
+
+        .payment-method img {
+            height: 40px;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-method-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .card-details {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .card-details.active {
+            display: block;
+        }
+
+        .order-summary {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .summary-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-size: 14px;
+        }
+
+        .summary-item.total {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--border);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: scaleIn 0.5s;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .order-number {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .search-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            🎉 Transporti FALAS per porosi mbi 5000 Leke
+        </div>
+        <nav>
+            <a href="#" class="logo">VENDEKS</a>
+            
+            <div class="search-container">
+                <input type="text" class="search-bar" id="searchInput" placeholder="Kerko produkte...">
+                <button class="search-btn" onclick="searchProducts()">Kerko</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Ballina</a></li>
+                <li><a href="#categories">Kategori</a></li>
+                <li><a href="#products">Produkte</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" onclick="alert('Funksionaliteti i kerkimit do te aktivizohet se shpejti!')">🔍</button>
+                <button class="icon-btn" onclick="alert('Llogaria juaj')">👤</button>
+                <button class="icon-btn" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>KOLEKSIONI I RI</h1>
+            <p>Zbuloni stilin tuaj te persosur</p>
+            <a href="#products" class="cta-btn">Shfleto Tani</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Kategorite Tona</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="filterProducts('Meshkuj')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect fill='%234a5568' width='400' height='500'/><text x='200' y='250' font-size='80' fill='white' text-anchor='middle' font-family='Arial'>👔</text></svg>" alt="Meshkuj">
+                <div class="category-overlay">
+                    <div class="category-name">Per Meshkuj</div>
+                    <p>Koleksion modern</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="filterProducts('Femra')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect fill='%23d4af37' width='400' height='500'/><text x='200' y='250' font-size='80' fill='white' text-anchor='middle' font-family='Arial'>👗</text></svg>" alt="Femra">
+                <div class="category-overlay">
+                    <div class="category-name">Per Femra</div>
+                    <p>Elegance dhe stil</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="filterProducts('Aksesore')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect fill='%232d3748' width='400' height='500'/><text x='200' y='250' font-size='80' fill='white' text-anchor='middle' font-family='Arial'>👜</text></svg>" alt="Aksesore">
+                <div class="category-overlay">
+                    <div class="category-name">Aksesore</div>
+                    <p>Detaje perfekte</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="filterProducts('Sport')">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect fill='%2338a169' width='400' height='500'/><text x='200' y='250' font-size='80' fill='white' text-anchor='middle' font-family='Arial'>👟</text></svg>" alt="Sport">
+                <div class="category-overlay">
+                    <div class="category-name">Sport</div>
+                    <p>Performance maksimale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <h2 class="section-title">Produktet Tona</h2>
+        
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterProducts('Te Gjitha')">Te Gjitha</button>
+            <button class="filter-btn" onclick="filterProducts('Meshkuj')">Meshkuj</button>
+            <button class="filter-btn" onclick="filterProducts('Femra')">Femra</button>
+            <button class="filter-btn" onclick="filterProducts('Aksesore')">Aksesore</button>
+            <button class="filter-btn" onclick="filterProducts('Sport')">Sport</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shporta Juaj</h3>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart-message">
+                <p>Shporta juaj eshte bosh</p>
+                <p style="font-size: 3rem;">🛍️</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Totali:</span>
+                <span id="cartTotal">0 Leke</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Perfundo Blerjen</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="checkout-modal">
+            <div class="modal-header">
+                <h2>Perfundo Blerjen</h2>
+                <button class="close-modal" onclick="closeCheckout()">✕</button>
+            </div>
+            <div class="modal-content">
+                <!-- Steps Indicator -->
+                <div class="checkout-steps">
+                    <div class="step active" id="step1Indicator">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Te Dhenat</div>
+                    </div>
+                    <div class="step" id="step2Indicator">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Pagesa</div>
+                    </div>
+                    <div class="step" id="step3Indicator">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Konfirmimi</div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Billing Information -->
+                <div class="checkout-section active" id="step1">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem;">Te Dhenat e Faturimit</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Emri *</label>
+                            <input type="text" class="form-input" id="firstName" placeholder="Emri juaj" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mbiemri *</label>
+                            <input type="text" class="form-input" id="lastName" placeholder="Mbiemri juaj" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" id="email" placeholder="email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Numri i Telefonit *</label>
+                        <input type="tel" class="form-input" id="phone" placeholder="+355 69 123 4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Adresa *</label>
+                        <input type="text" class="form-input" id="address" placeholder="Rruga, Nr." required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Qyteti *</label>
+                            <input type="text" class="form-input" id="city" placeholder="Qyteti" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kodi Postar</label>
+                            <input type="text" class="form-input" id="zipCode" placeholder="1001">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Shenime per Porosine (Opsionale)</label>
+                        <textarea class="form-input" id="orderNotes" rows="3" placeholder="Ndonje kerkese speciale..."></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-secondary" onclick="closeCheckout()">Anulo</button>
+                        <button class="btn btn-primary" onclick="goToStep(2)">Vazhdo te Pagesa →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Payment Method -->
+                <div class="checkout-section" id="step2">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem;">Zgjidhni Metoden e Pageses</h3>
+
+                    <div class="payment-methods">
+                        <div class="payment-method" onclick="selectPayment('visa')">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><rect fill='%231434CB' width='120' height='40' rx='5'/><text x='60' y='25' font-size='18' fill='white' text-anchor='middle' font-weight='bold' font-family='Arial'>VISA</text></svg>" alt="Visa">
+                            <div class="payment-method-name">Visa</div>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('mastercard')">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><rect fill='%23EB001B' width='120' height='40' rx='5'/><circle fill='%23FF5F00' cx='50' cy='20' r='12'/><circle fill='%23F79E1B' cx='70' cy='20' r='12'/></svg>" alt="Mastercard">
+                            <div class="payment-method-name">Mastercard</div>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment('paypal')">
+                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><rect fill='%23003087' width='120' height='40' rx='5'/><text x='60' y='25' font-size='16' fill='%2300A0E3' text-anchor='middle' font-weight='bold' font-family='Arial'>PayPal</text></svg>" alt="PayPal">
+                            <div class="payment-method-name">PayPal</div>
+                        </div>
+                    </div>
+
+                    <!-- Card Details Form -->
+                    <div class="card-details" id="cardDetails">
+                        <div class="form-group">
+                            <label class="form-label">Numri i Kartes *</label>
+                            <input type="text" class="form-input" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Emri ne Karte *</label>
+                            <input type="text" class="form-input" id="cardName" placeholder="EMRI MBIEMRI">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Data e Skadimit *</label>
+                                <input type="text" class="form-input" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">CVV *</label>
+                                <input type="text" class="form-input" id="cvv" placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PayPal Details -->
+                    <div class="card-details" id="paypalDetails">
+                        <div class="form-group">
+                            <label class="form-label">PayPal Email *</label>
+                            <input type="email" class="form-input" id="paypalEmail" placeholder="paypal@example.com">
+                        </div>
+                        <div style="background: #f0f8ff; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                            <p style="font-size: 13px; color: #003087;">
+                                ℹ️ Do te ridrejtoheni ne PayPal per te perfunduar pagesen ne menyre te sigurt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="order-summary">
+                        <div class="summary-title">Permbledhje e Porosise</div>
+                        <div id="orderSummaryItems"></div>
+                        <div class="summary-item">
+                            <span>Nentotali:</span>
+                            <span id="summarySubtotal">0 Leke</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Transporti:</span>
+                            <span id="summaryShipping">Falas</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Totali:</span>
+                            <span id="summaryTotal">0 Leke</span>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-secondary" onclick="goToStep(1)">← Kthehu Prapa</button>
+                        <button class="btn btn-primary" onclick="goToStep(3)">Vazhdo te Konfirmimi →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div class="checkout-section" id="step3">
+                    <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1.5rem;">Konfirmo Porosine</h3>
+
+                    <div style="background: var(--bg); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary);">Te Dhenat e Bleresit</h4>
+                        <div id="confirmBilling"></div>
+                    </div>
+
+                    <div style="background: var(--bg); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary);">Metoda e Pageses</h4>
+                        <div id="confirmPayment"></div>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-title">Permbledhje Finale</div>
+                        <div id="finalSummaryItems"></div>
+                        <div class="summary-item">
+                            <span>Nentotali:</span>
+                            <span id="finalSubtotal">0 Leke</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Transporti:</span>
+                            <span id="finalShipping">Falas</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Totali per Pagese:</span>
+                            <span id="finalTotal">0 Leke</span>
+                        </div>
+                    </div>
+
+                    <div style="background: #fff8dc; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; border-left: 4px solid var(--accent);">
+                        <p style="font-size: 13px; color: var(--text);">
+                            ⚠️ Duke klikuar "Konfirmo Porosine", ju pranoni <a href="#" style="color: var(--accent);">Termat dhe Kushtet</a> tona.
+                        </p>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-secondary" onclick="goToStep(2)">← Kthehu Prapa</button>
+                        <button class="btn btn-primary" onclick="confirmOrder()">✓ Konfirmo Porosine</button>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="checkout-section" id="stepSuccess">
+                    <div class="success-message">
+                        <div class="success-icon">✅</div>
+                        <h3>Porosia u Krye me Sukses!</h3>
+                        <p>Faleminderit per blerjen tuaj. Porosia juaj eshte pranuar dhe do te perpunohet se shpejti.</p>
+                        <div class="order-number">
+                            Numri i Porosise: <span id="orderNumberDisplay">#VDK-2026-0001</span>
+                        </div>
+                        <p style="font-size: 14px; color: #999;">
+                            Nje email konfirmimi eshte derguar ne adresen tuaj.<br>
+                            Do te njoftoheni kur porosia te jete gati per dergese.
+                        </p>
+                        <button class="btn btn-primary" onclick="finishOrder()" style="margin-top: 2rem;">Kthehu ne Ballina</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VENDEKS</h4>
+                <p style="opacity: 0.8; line-height: 1.8;">Dyqani juaj i preferuar per veshje moderne dhe cilesore. Stil, cilesi dhe komoditet ne nje vend.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">🐦</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Kategorite</h4>
+                <ul>
+                    <li><a href="#">Per Meshkuj</a></li>
+                    <li><a href="#">Per Femra</a></li>
+                    <li><a href="#">Aksesore</a></li>
+                    <li><a href="#">Sport & Athleisure</a></li>
+                    <li><a href="#">Koleksioni i Ri</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Informacion</h4>
+                <ul>
+                    <li><a href="#">Rreth Nesh</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="#">Politika e Kthimit</a></li>
+                    <li><a href="#">Termat dhe Kushtet</a></li>
+                    <li><a href="#">Privatesia</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakti</h4>
+                <ul>
+                    <li>📍 Rruga e Durresit, Tirane</li>
+                    <li>📞 +355 69 123 4567</li>
+                    <li>✉️ info@vendeks.al</li>
+                    <li>🕐 E Hene - E Shtune: 9:00 - 21:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 VENDEKS. Te gjitha te drejtat e rezervuara.</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: 'Kemishe Klasike',
+                category: 'Meshkuj',
+                price: 4500,
+                oldPrice: 5500,
+                image: "KemisheKlasike.jpg",
+                badge: 'ZBRITJE'
+            },
+            {
+                id: 2,
+                name: 'Fustan Elegant',
+                category: 'Femra',
+                price: 7800,
+                oldPrice: null,
+                image: "FustanElegant.jpg",
+                badge: 'I RI'
+            },
+            {
+                id: 3,
+                name: 'Cante Lekure',
+                category: 'Aksesore',
+                price: 8900,
+                oldPrice: 10500,
+               image: "imagescante.jpg",
+                badge: 'ZBRITJE'
+            },
+            {
+                id: 4,
+                name: 'Kepuce Sporti',
+                category: 'Sport',
+                price: 6500,
+                oldPrice: null,
+                image: "KepuceSporti.jpg",
+                badge: 'POPULLAR'
+            },
+            {
+                id: 5,
+                name: 'Xhakete Lekure',
+                category: 'Meshkuj',
+                price: 12500,
+                oldPrice: 15000,
+                image: "XhaketeLekure.jpg",
+                badge: 'ZBRITJE'
+            },
+            {
+                id: 6,
+                name: 'Bluze Elegante',
+                category: 'Femra',
+                price: 3900,
+                oldPrice: null,
+                image: "BluzeElegante.jpg",
+                badge: 'I RI'
+            },
+            {
+                id: 7,
+                name: 'Syze Dielli',
+                category: 'Aksesore',
+                price: 2800,
+                oldPrice: 3500,
+                image: "SyzeDielli.jpg",
+                badge: 'ZBRITJE'
+            },
+            {
+                id: 8,
+                name: 'Pantallona Sporti',
+                category: 'Sport',
+                price: 4200,
+                oldPrice: null,
+                image: "PantallonaSporti.jpg",
+                badge: 'POPULLAR'
+            },
+            {
+                id: 9,
+                name: 'Kostum Elegant',
+                category: 'Meshkuj',
+                price: 18900,
+                oldPrice: 22000,
+                image: "KostumElegant.jpg",                
+                badge: 'PREMIUM'
+            },
+            {
+                id: 10,
+                name: 'Pallto Dimri',
+                category: 'Femra',
+                price: 14500,
+                oldPrice: null,
+                image: "PalltoDimri.jpg",
+                badge: 'I RI'
+            },
+            {
+                id: 11,
+                name: 'Ore Dore',
+                category: 'Aksesore',
+                price: 15800,
+                oldPrice: 18500,
+                image: "OreDore.jpg",
+                badge: 'ZBRITJE'
+            },
+            {
+                id: 12,
+                name: 'Tuta Sporti',
+                category: 'Sport',
+                price: 8500,
+                oldPrice: null,
+                image: "TutaSporti.jpg",
+                badge: 'POPULLAR'
+            }
+        ];
+
+        let cart = [];
+        let currentFilter = 'Te Gjitha';
+        let currentStep = 1;
+        let selectedPaymentMethod = '';
+        let orderData = {};
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts(products);
+            updateCartUI();
+        });
+
+        // Display Products
+        function displayProducts(productsToShow) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            productsToShow.forEach(product => {
+                const productCard = `
+                    <div class="product-card" data-category="${product.category}">
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" class="product-image">
+                            ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                            <div class="quick-view" onclick="viewProduct(${product.id})">Shiko Shpejt</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-price">
+                                ${product.price} Leke
+                                ${product.oldPrice ? `<span class="old-price">${product.oldPrice} Leke</span>` : ''}
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})">Shto ne Shporte</button>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += productCard;
+            });
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter and display
+            if (category === 'Te Gjitha') {
+                displayProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                displayProducts(filtered);
+            }
+
+            // Scroll to products
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Search Products
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (!searchTerm) {
+                displayProducts(products);
+                return;
+            }
+
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(searchTerm) || 
+                p.category.toLowerCase().includes(searchTerm)
+            );
+
+            displayProducts(filtered);
+            
+            if (filtered.length === 0) {
+                document.getElementById('productsGrid').innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                        <p style="font-size: 1.5rem; color: #999;">Nuk u gjet asnje produkt per "${searchTerm}"</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Add to Cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+
+            updateCartUI();
+            
+            // Show notification
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✓ U Shtua!';
+            btn.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 1500);
+        }
+
+        // Update Cart UI
+        function updateCartUI() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            // Update count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Update items
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart-message">
+                        <p>Shporta juaj eshte bosh</p>
+                        <p style="font-size: 3rem;">🛍️</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">${item.price} Leke</div>
+                            <div class="quantity-controls">
+                                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span style="padding: 0 10px;">${item.quantity}</span>
+                                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${item.id})">🗑️</button>
+                    </div>
+                `).join('');
+            }
+
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = total.toLocaleString() + ' Leke';
+        }
+
+        // Update Quantity
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        // Remove from Cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+        }
+
+        // Toggle Cart
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // View Product
+        function viewProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Produkti: ${product.name}\nCmimi: ${product.price} Leke\nKategoria: ${product.category}\n\nKy eshte nje shembull. Ne versionin e plote, do te hapet nje modal me te gjitha detajet e produktit.`);
+        }
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Shporta juaj eshte bosh!');
+                return;
+            }
+
+            // Open checkout modal
+            document.getElementById('checkoutModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Reset to step 1
+            goToStep(1);
+            
+            // Update order summary
+            updateOrderSummary();
+        }
+
+        // Close Checkout Modal
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            currentStep = 1;
+            selectedPaymentMethod = '';
+        }
+
+        // Go to Step
+        function goToStep(step) {
+            // Validate current step before proceeding
+            if (step > currentStep) {
+                if (currentStep === 1 && !validateBillingInfo()) {
+                    return;
+                }
+                if (currentStep === 2 && !validatePaymentInfo()) {
+                    return;
+                }
+            }
+
+            // Hide all sections
+            document.querySelectorAll('.checkout-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById('step' + step).classList.add('active');
+
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((stepEl, index) => {
+                stepEl.classList.remove('active', 'completed');
+                if (index + 1 < step) {
+                    stepEl.classList.add('completed');
+                } else if (index + 1 === step) {
+                    stepEl.classList.add('active');
+                }
+            });
+
+            currentStep = step;
+
+            // If going to step 3, populate confirmation
+            if (step === 3) {
+                populateConfirmation();
+            }
+        }
+
+        // Validate Billing Information
+        function validateBillingInfo() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const city = document.getElementById('city').value.trim();
+
+            if (!firstName || !lastName || !email || !phone || !address || !city) {
+                alert('Ju lutem plotesoni te gjitha fushat e detyrueshme!');
+                return false;
+            }
+
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Ju lutem vendosni nje adrese email te vlefshme!');
+                return false;
+            }
+
+            // Store billing info
+            orderData.billing = {
+                firstName,
+                lastName,
+                email,
+                phone,
+                address,
+                city,
+                zipCode: document.getElementById('zipCode').value.trim(),
+                notes: document.getElementById('orderNotes').value.trim()
+            };
+
+            return true;
+        }
+
+        // Validate Payment Information
+        function validatePaymentInfo() {
+            if (!selectedPaymentMethod) {
+                alert('Ju lutem zgjidhni nje metode pagese!');
+                return false;
+            }
+
+            if (selectedPaymentMethod === 'visa' || selectedPaymentMethod === 'mastercard') {
+                const cardNumber = document.getElementById('cardNumber').value.trim();
+                const cardName = document.getElementById('cardName').value.trim();
+                const expiryDate = document.getElementById('expiryDate').value.trim();
+                const cvv = document.getElementById('cvv').value.trim();
+
+                if (!cardNumber || !cardName || !expiryDate || !cvv) {
+                    alert('Ju lutem plotesoni te gjitha fushat e kartes!');
+                    return false;
+                }
+
+                // Basic card number validation (just length)
+                if (cardNumber.replace(/\s/g, '').length < 13) {
+                    alert('Numri i kartes nuk eshte i vlefshem!');
+                    return false;
+                }
+
+                orderData.payment = {
+                    method: selectedPaymentMethod,
+                    cardNumber: '****' + cardNumber.slice(-4),
+                    cardName
+                };
+            } else if (selectedPaymentMethod === 'paypal') {
+                const paypalEmail = document.getElementById('paypalEmail').value.trim();
+                
+                if (!paypalEmail) {
+                    alert('Ju lutem vendosni email-in e PayPal!');
+                    return false;
+                }
+
+                orderData.payment = {
+                    method: 'paypal',
+                    email: paypalEmail
+                };
+            }
+
+            return true;
+        }
+
+        // Select Payment Method
+        function selectPayment(method) {
+            selectedPaymentMethod = method;
+            
+            // Update visual selection
+            document.querySelectorAll('.payment-method').forEach(pm => {
+                pm.classList.remove('selected');
+            });
+            event.target.closest('.payment-method').classList.add('selected');
+
+            // Show/hide appropriate form
+            document.getElementById('cardDetails').classList.remove('active');
+            document.getElementById('paypalDetails').classList.remove('active');
+
+            if (method === 'visa' || method === 'mastercard') {
+                document.getElementById('cardDetails').classList.add('active');
+            } else if (method === 'paypal') {
+                document.getElementById('paypalDetails').classList.add('active');
+            }
+        }
+
+        // Update Order Summary
+        function updateOrderSummary() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal >= 5000 ? 0 : 300;
+            const total = subtotal + shipping;
+
+            // Generate items HTML
+            const itemsHTML = cart.map(item => `
+                <div class="summary-item">
+                    <span>${item.name} x${item.quantity}</span>
+                    <span>${(item.price * item.quantity).toLocaleString()} Leke</span>
+                </div>
+            `).join('');
+
+            // Update all summary sections
+            ['orderSummaryItems', 'finalSummaryItems'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.innerHTML = itemsHTML;
+            });
+
+            ['summarySubtotal', 'finalSubtotal'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = subtotal.toLocaleString() + ' Leke';
+            });
+
+            ['summaryShipping', 'finalShipping'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = shipping === 0 ? 'Falas' : shipping + ' Leke';
+            });
+
+            ['summaryTotal', 'finalTotal'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = total.toLocaleString() + ' Leke';
+            });
+
+            orderData.cart = cart;
+            orderData.totals = { subtotal, shipping, total };
+        }
+
+        // Populate Confirmation
+        function populateConfirmation() {
+            // Billing info
+            const billingHTML = `
+                <p style="margin-bottom: 0.5rem;"><strong>${orderData.billing.firstName} ${orderData.billing.lastName}</strong></p>
+                <p style="margin-bottom: 0.5rem; font-size: 14px;">${orderData.billing.email}</p>
+                <p style="margin-bottom: 0.5rem; font-size: 14px;">${orderData.billing.phone}</p>
+                <p style="margin-bottom: 0.5rem; font-size: 14px;">${orderData.billing.address}</p>
+                <p style="font-size: 14px;">${orderData.billing.city}${orderData.billing.zipCode ? ', ' + orderData.billing.zipCode : ''}</p>
+            `;
+            document.getElementById('confirmBilling').innerHTML = billingHTML;
+
+            // Payment info
+            let paymentHTML = '';
+            if (orderData.payment.method === 'visa' || orderData.payment.method === 'mastercard') {
+                const methodName = orderData.payment.method === 'visa' ? 'Visa' : 'Mastercard';
+                paymentHTML = `
+                    <p style="margin-bottom: 0.5rem;"><strong>${methodName}</strong></p>
+                    <p style="font-size: 14px;">Karta: ${orderData.payment.cardNumber}</p>
+                    <p style="font-size: 14px;">Emri: ${orderData.payment.cardName}</p>
+                `;
+            } else if (orderData.payment.method === 'paypal') {
+                paymentHTML = `
+                    <p style="margin-bottom: 0.5rem;"><strong>PayPal</strong></p>
+                    <p style="font-size: 14px;">${orderData.payment.email}</p>
+                `;
+            }
+            document.getElementById('confirmPayment').innerHTML = paymentHTML;
+
+            updateOrderSummary();
+        }
+
+        // Confirm Order
+        function confirmOrder() {
+            // Generate order number
+            const orderNumber = 'VDK-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9999) + 1).padStart(4, '0');
+            document.getElementById('orderNumberDisplay').textContent = '#' + orderNumber;
+
+            // Show success message
+            document.querySelectorAll('.checkout-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('stepSuccess').classList.add('active');
+
+            // Update all step indicators to completed
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+                step.classList.add('completed');
+            });
+
+            // Store order (in real app, this would send to server)
+            console.log('Order Placed:', {
+                orderNumber,
+                ...orderData,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Finish Order
+        function finishOrder() {
+            // Clear cart
+            cart = [];
+            updateCartUI();
+            
+            // Close modal
+            closeCheckout();
+            
+            // Reset form fields
+            document.querySelectorAll('.form-input').forEach(input => {
+                input.value = '';
+            });
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Format card number input
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardNumberInput = document.getElementById('cardNumber');
+            if (cardNumberInput) {
+                cardNumberInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\s/g, '');
+                    let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                    e.target.value = formattedValue;
+                });
+            }
+
+            const expiryInput = document.getElementById('expiryDate');
+            if (expiryInput) {
+                expiryInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                    }
+                    e.target.value = value;
+                });
+            }
+        });
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('checkoutModal');
+            if (event.target === modal) {
+                closeCheckout();
+            }
+
+            const sidebar = document.getElementById('cartSidebar');
+            const cartBtn = event.target.closest('.icon-btn');
+            
+            if (!sidebar.contains(event.target) && !cartBtn && sidebar.classList.contains('active')) {
+                toggleCart();
+            }
+        });
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchProducts();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
